@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 
-class UserItem extends Component {
-  render() {
+const UserItem = (props) => {
+
     //destructuring state
-    const { login, avatar_url, html_url } = this.props.user;
+    const { login, avatar_url, html_url } =props.user;
     return (
       <div className='card text-center'>
         <img
@@ -21,7 +21,6 @@ class UserItem extends Component {
         </div>
       </div>
     );
-  }
 }
 
 export default UserItem;
