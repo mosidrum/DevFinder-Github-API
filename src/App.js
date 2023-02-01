@@ -46,11 +46,13 @@ class App extends Component {
 
   render() {
     const { users, loading } = this.state;
+
     return (
-      <nav className='App'>
+      <div className='App'>
         <Navbar />
         <div className='container'>
           <Alert alert={this.state.alert} />
+
           <Search
             searchUsers={this.searchUsers}
             clearUsers={this.clearUsers}
@@ -59,7 +61,7 @@ class App extends Component {
           />
           <Users loading={loading} users={users} />
         </div>
-      </nav>
+      </div>
     );
   }
 }
