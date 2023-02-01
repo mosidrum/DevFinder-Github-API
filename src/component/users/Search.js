@@ -19,11 +19,12 @@ export class Search extends Component {
       this.props.setAlert("Please enter a name to search", "light");
     } else {
       this.props.searchUsers(this.state.text);
-      this.setState({ text: text });
     }
   };
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+
+  onMouseOver = (e) => this.setState({ text: "" });
 
   render() {
     const { showClear, clearUsers } = this.props;
@@ -44,7 +45,10 @@ export class Search extends Component {
           />
         </form>
         {showClear && (
-          <button className='btn btn-light btn-block' onClick={clearUsers}>
+          <button
+            className='btn btn-light btn-block'
+            onClick={clearUsers}
+            onMouseOver={this.onMouseOver}>
             Clear
           </button>
         )}

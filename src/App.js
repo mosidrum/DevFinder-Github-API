@@ -41,11 +41,11 @@ class App extends Component {
 
   setAlert = (msg, type) => {
     this.setState({ alert: { msg, type } });
-    setTimeout(()=> this.setState({alert:null}), 2500)
+    setTimeout(() => this.setState({ alert: null }), 2500);
   };
 
   render() {
-    const { users, loading, } = this.state;
+    const { users, loading } = this.state;
     return (
       <nav className='App'>
         <Navbar />
