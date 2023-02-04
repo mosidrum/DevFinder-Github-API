@@ -13,7 +13,6 @@ class App extends Component {
     alert: null,
   };
 
-  
   //Search Github Users
   searchUsers = async (text) => {
     this.setState({ loading: true });
