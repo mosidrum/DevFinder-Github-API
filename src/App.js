@@ -3,8 +3,10 @@ import Navbar from "./component/layout/Navbar";
 import Users from "./component/users/Users";
 import Search from "./component/users/Search";
 import Alert from "./component/layout/Alert";
+import { Routes, Route } from 'react-router-dom';
 import axios from "axios";
 import "./App.css";
+import About from "./component/Pages/About";
 
 class App extends Component {
   state = {
@@ -42,14 +44,16 @@ class App extends Component {
         <Navbar />
         <div className='container'>
           <Alert alert={this.state.alert} />
-
-          <Search
-            searchUsers={this.searchUsers}
-            clearUsers={this.clearUsers}
-            showClear={users.length > 0 ? true : false}
-            setAlert={this.setAlert}
-          />
-          <Users loading={loading} users={users} />
+          <Routes>
+            <Route path="/" element = { [<Search
+                searchUsers={this.searchUsers}
+                clearUsers={this.clearUsers}
+                showClear={users.length > 0 ? true : false}
+                setAlert={this.setAlert}
+              />,
+             <Users loading={loading} users={users} /> ] } />
+             <Route path="about" element={<About />} />
+          </Routes>
         </div>
       </div>
     );
